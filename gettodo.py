@@ -12,9 +12,9 @@ driver.get('https://www.instructables.com/')
 
 final = []
 
-with open('play.json') as json_file:  
+with open('home.json') as json_file:  
     data = json.load(json_file)
-    for p in range(780, len(data)):
+    for p in range(440, len(data)):
         driver.get(data[p]['url'])
         print(str(p) + '.-' + data[p]['url'])
         url = data[p]['url']
@@ -31,7 +31,7 @@ with open('play.json') as json_file:
             #intro = driver.find_element_by_id('intro')
             description = ''
             try:
-                description = driver.execute_script("var intro = document.getElementById('intro'); return intro ? intro.getElementsByClassName('step-body')[0] : document.getElementsByClassName('collection-intro')[0]").text
+                description = driver.execute_script("var intro = document.getElementById('intro'); return intro ? intro.getElementsByClassName('step-body')[0] : (document.getElementsByClassName('collection-intro').length > 0 ? document.getElementsByClassName('collection-intro')[0] : document.getElementsByClassName('header-title')[0])").text
             except Exception as e:
                 description = 'No description available'
             #description = intro.find_element_by_css_selector('.step-body').text
@@ -70,5 +70,6 @@ with open('play.json') as json_file:
                 'steps': step_all
             })
             if len(final) % 20 == 0:
-                with open('play2_all.json', 'w') as f:  # writing JSON object
-                    json.dump(final, f)
+                print('ok')
+                #with open('play2_all.json', 'w') as f:  # writing JSON object
+                #    json.dump(final, f)
