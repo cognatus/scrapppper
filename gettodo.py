@@ -12,9 +12,9 @@ driver.get('https://www.instructables.com/')
 
 final = []
 
-with open('workshop.json') as json_file:  
+with open('technology.json') as json_file:  
     data = json.load(json_file)
-    for p in range(330, len(data)):
+    for p in range(1660, len(data)):
         driver.get(data[p]['url'])
         print(str(p) + '.-' + data[p]['url'])
         url = data[p]['url']
@@ -70,5 +70,5 @@ with open('workshop.json') as json_file:
                 'steps': step_all
             })
             if len(final) % 20 == 0:
-                with open('workshop2_all.json', 'w') as f:  # writing JSON object
+                with open('technology2_all.json', 'w') as f:  # writing JSON object
                     json.dump(final, f)
