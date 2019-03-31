@@ -25,4 +25,3 @@ for i in range(0, 116):
         print(aux['url'])
     with open('beginner1.json', 'w') as f:  # writing JSON object
         json.dump(final, f)
-    break
