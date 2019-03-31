@@ -11,7 +11,7 @@ driver.get('https://www.hackster.io/projects/')
 
 final = []
 
-for i in range(117, 232):
+for i in range(233, 347):
     newPage = driver.get('https://www.hackster.io/projects/?difficulty=beginner&page='+str(i+1))
     time.sleep(3)
     content = driver.find_element_by_css_selector('.hckui__grid__cell.hckui__layout__flex')
@@ -23,5 +23,5 @@ for i in range(117, 232):
         aux['url'] = link.get_attribute('href')
         final.append(aux)
         print(aux['url'])
-    with open('beginner2.json', 'w') as f:  # writing JSON object
+    with open('beginner3.json', 'w') as f:  # writing JSON object
         json.dump(final, f)
