@@ -14,7 +14,7 @@ final = []
 
 with open('workshop.json') as json_file:  
     data = json.load(json_file)
-    for p in range(4940, len(data)):
+    for p in range(8340, len(data)):
         driver.get(data[p]['url'])
         print(str(p) + '.-' + data[p]['url'])
         url = data[p]['url']
@@ -76,6 +76,6 @@ with open('workshop.json') as json_file:
                 'steps': step_all
             })
             if len(final) % 20 == 0:
-                with open('workshop3_all.json', 'w') as f:  # writing JSON object
+                with open('workshop4_all.json', 'w') as f:  # writing JSON object
                     json.dump(final, f)
 
