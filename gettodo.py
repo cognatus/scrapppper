@@ -73,5 +73,5 @@ with open('play.json') as json_file:
                 'steps': step_all
             })
             if len(final) % 20 == 0:
-                with open('asdasda2_all.json', 'w') as f:  # writing JSON object
+                with open('play3_all.json', 'w') as f:  # writing JSON object
                     json.dump(final, f)
