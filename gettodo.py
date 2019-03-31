@@ -12,22 +12,25 @@ driver.get('https://www.instructables.com/')
 
 final = []
 
-with open('workshop.json') as json_file:  
+with open('play.json') as json_file:  
     data = json.load(json_file)
-    for p in range(330, len(data)):
+    for p in range(1640, len(data)):
         driver.get(data[p]['url'])
         print(str(p) + '.-' + data[p]['url'])
         url = data[p]['url']
-        title = ''    
+        title = ''   
+        category = ''
+        channel = ''
         pasa = True
         try:
             title = driver.find_element_by_css_selector('.header-title').text
+            category = driver.find_element_by_css_selector('.category').text
+            channel = driver.find_element_by_css_selector('.channel').text
         except NoSuchElementException as Exception:
             pasa = False        
             print('no info')
         if pasa:
-            category = driver.find_element_by_css_selector('.category').text
-            channel = driver.find_element_by_css_selector('.channel').text
+            
             #intro = driver.find_element_by_id('intro')
             description = ''
             try:
@@ -70,5 +73,5 @@ with open('workshop.json') as json_file:
                 'steps': step_all
             })
             if len(final) % 20 == 0:
-                with open('workshop2_all.json', 'w') as f:  # writing JSON object
+                with open('asdasda2_all.json', 'w') as f:  # writing JSON object
                     json.dump(final, f)
