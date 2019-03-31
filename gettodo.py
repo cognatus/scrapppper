@@ -70,6 +70,5 @@ with open('home.json') as json_file:
                 'steps': step_all
             })
             if len(final) % 20 == 0:
-                print('ok')
-                #with open('play2_all.json', 'w') as f:  # writing JSON object
-                #    json.dump(final, f)
+                with open('play2_all.json', 'w') as f:  # writing JSON object
+                    json.dump(final, f)
