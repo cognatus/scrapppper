@@ -10,15 +10,18 @@ driver.get('https://www.instructables.com/')
 
 final = []
 
-with open('play.json') as json_file:  
+with open('all.json') as json_file:  
     data = json.load(json_file)
     for p in range(0, len(data)):
         driver.get(data[p]['url'])
-        print(data[p]['url'])
-
+        print(str(p) + '.-' + data[p]['url'])
+        url = data[p]['url']
         title = driver.find_element_by_css_selector('.header-title').text
         category = driver.find_element_by_css_selector('.category').text
         channel = driver.find_element_by_css_selector('.channel').text
+        #intro = driver.find_element_by_id('intro')
+        description = driver.execute_script("var intro = document.getElementById('intro'); return intro ? intro.getElementsByClassName('step-body')[0] : document.getElementsByClassName('collection-intro')[0]").text
+        #description = intro.find_element_by_css_selector('.step-body').text
         esta =True
         i = 1
         step_all = []
@@ -27,7 +30,7 @@ with open('play.json') as json_file:
             while(esta):
                 step = driver.find_element_by_id('step'+str(i))
                 step_title = step.find_element_by_css_selector('.step-title').text
-                steps_imgs = step.find_element_by_css_selector('.gallery-link')
+                steps_text = step.find_element_by_css_selector('.step-body').text
                 otro = driver.execute_script("return document.getElementById('step"+str(i)+"').getElementsByClassName('gallery-link')")
                 imgs = []
 
@@ -36,8 +39,9 @@ with open('play.json') as json_file:
                 
                 step_all.append({
                     'step_title': step_title,
+                    'steps_text': steps_text,
                     'step': i,
-                    'imgs': imgs
+                    'step_imgs': imgs
                 })
                 i = i +1
         except NoSuchElementException as Exception:
@@ -47,9 +51,11 @@ with open('play.json') as json_file:
         final.append({
             'title': title,
             'category': category,
+            'url': url,
+            'description': description,
             'channel': channel,
             'steps': step_all
         })
-        if len(final) % 10 == 0:
-            with open('play_all.json', 'w') as f:  # writing JSON object
+        if len(final) % 20 == 0:
+            with open('all_all.json', 'w') as f:  # writing JSON object
                 json.dump(final, f)
