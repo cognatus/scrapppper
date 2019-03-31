@@ -22,7 +22,11 @@ with open('outside.json') as json_file:
         category = driver.find_element_by_css_selector('.category').text
         channel = driver.find_element_by_css_selector('.channel').text
         #intro = driver.find_element_by_id('intro')
-        description = driver.execute_script("var intro = document.getElementById('intro'); return intro ? intro.getElementsByClassName('step-body')[0] : document.getElementsByClassName('collection-intro')[0]").text
+        description = ''
+        try:
+            description = driver.execute_script("var intro = document.getElementById('intro'); return intro ? intro.getElementsByClassName('step-body')[0] : document.getElementsByClassName('collection-intro')[0]").text
+        except Exception as e:
+            description = 'No description available'
         #description = intro.find_element_by_css_selector('.step-body').text
         esta =True
         i = 1
