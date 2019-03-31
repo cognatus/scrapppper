@@ -15,7 +15,7 @@ final = []
 with open('outside.json') as json_file:  
     data = json.load(json_file)
     for p in range(0, len(data)):
-        driver.get('https://www.instructables.com/id/Rocar-Chocalho-Braziliaan-Samba-Shaker-ENNL/')
+        driver.get(data[p]['url'])
         print(str(p) + '.-' + data[p]['url'])
         url = data[p]['url']
         title = ''    
