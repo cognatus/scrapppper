@@ -5,12 +5,14 @@ from selenium.common.exceptions import NoSuchElementException
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
 driver = webdriver.Chrome(executable_path = './chromedriver_linux64/chromedriver',chrome_options=options)
 driver.get('https://www.instructables.com/')
 
 final = []
 
-with open('all.json') as json_file:  
+with open('outside.json') as json_file:  
     data = json.load(json_file)
     for p in range(0, len(data)):
         driver.get(data[p]['url'])
@@ -57,5 +59,5 @@ with open('all.json') as json_file:
             'steps': step_all
         })
         if len(final) % 20 == 0:
-            with open('all_all.json', 'w') as f:  # writing JSON object
+            with open('outside_all.json', 'w') as f:  # writing JSON object
                 json.dump(final, f)
