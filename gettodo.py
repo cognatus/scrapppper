@@ -12,9 +12,9 @@ driver.get('https://www.instructables.com/')
 
 final = []
 
-with open('home.json') as json_file:  
+with open('outside.json') as json_file:  
     data = json.load(json_file)
-    for p in range(7760, len(data)):
+    for p in range(9380, len(data)):
         driver.get(data[p]['url'])
         print(str(p) + '.-' + data[p]['url'])
         url = data[p]['url']
@@ -73,6 +73,6 @@ with open('home.json') as json_file:
                 'steps': step_all
             })
             if len(final) % 20 == 0:
-                with open('home4_all.json', 'w') as f:  # writing JSON object
+                with open('outside4_all.json', 'w') as f:  # writing JSON object
                     json.dump(final, f)
 
