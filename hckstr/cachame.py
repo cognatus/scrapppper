@@ -24,7 +24,7 @@ print('This shit just started')
 
 final = []
 
-category = 'beginner1'
+category = 'hardcore'
 
 with open(category+'.json') as json_file:  
     data = json.load(json_file)
@@ -54,30 +54,11 @@ with open(category+'.json') as json_file:
                     'material': material.text
                 })
 
-            #esta =True
-            #i = 1
-            story = driver.find_element_by_id("story").get_attribute('innerHTML')
-            
-            #try:
-            #    while(esta):
-            #        step = driver.find_element_by_id('step'+str(i))
-            #        step_title = step.find_element_by_css_selector('.step-title').text
-            #        steps_text = step.find_element_by_css_selector('.step-body').text
-            #        otro = driver.execute_script("return document.getElementById('step"+str(i)+"').getElementsByClassName('gallery-link')")
-            #        imgs = []
-            #        for img in otro:
-            #            imgs.append(img.get_attribute('href'))
-            #        
-            #        step_all.append({
-            #            'step_title': step_title,
-            #            'steps_text': steps_text,
-            #            'step': i,
-            #            'step_imgs': imgs
-            #        })
-            #        i = i +1
-            #except NoSuchElementException as Exception:
-            #    i = 1
-            #    esta = False
+            story = ''
+            try:
+                story = driver.find_element_by_id("story").get_attribute('innerHTML')
+            except NoSuchElementException as Exception:
+                story = '<p>No Story for this article</p>'
 
             final.append({
                 'title': title,
