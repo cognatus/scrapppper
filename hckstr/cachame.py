@@ -24,7 +24,7 @@ print('This shit just started')
 
 final = []
 
-category = 'intermediate1'
+category = 'intermediate2'
 
 with open(category+'.json') as json_file:  
     data = json.load(json_file)
