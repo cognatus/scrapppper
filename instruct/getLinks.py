@@ -2,7 +2,7 @@ from selenium import webdriver
 import time
 import json
 
-category = 'home'
+category = 'food'
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
