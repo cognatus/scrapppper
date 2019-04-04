@@ -2,7 +2,7 @@ from selenium import webdriver
 import time
 import json
 
-category = 'home'
+category = 'technology'
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
@@ -18,6 +18,7 @@ final = []
 
 for i in range(0, numberPages):
     newPage = driver.get('https://www.instructables.com/'+category+'/?offset='+str(i*59))
+    time.sleep(5)
     articleList = driver.find_element_by_css_selector('.explore-covers-list.clearfix').find_elements_by_xpath('.//li')
     for article in articleList:
         aux = {}
