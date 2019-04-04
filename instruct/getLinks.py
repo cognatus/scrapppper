@@ -2,7 +2,7 @@ from selenium import webdriver
 import time
 import json
 
-category = 'costumes'
+category = 'craft'
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
@@ -16,9 +16,9 @@ pages = pagination.find_elements_by_xpath('.//li')
 numberPages = int(pages[len(pages)-2].text)
 final = []
 
-for i in range(0, numberPages):
+for i in range(420, numberPages):
     newPage = driver.get('https://www.instructables.com/'+category+'/?offset='+str(i*59))
-    time.sleep(5)
+    time.sleep(13)
     articleList = driver.find_element_by_css_selector('.explore-covers-list.clearfix').find_elements_by_xpath('.//li')
     for article in articleList:
         aux = {}
@@ -27,6 +27,6 @@ for i in range(0, numberPages):
         final.append(aux)
     print(str(i)+'.-'+str(i*59))
     if (i+1) % 10 == 0:
-        with open(category+'_links.json', 'w') as f:
+        with open(category+'2_links.json', 'w') as f:
             json.dump(final, f)
         print('Saved at index '+str(i))
