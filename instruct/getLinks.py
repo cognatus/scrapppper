@@ -2,7 +2,7 @@ from selenium import webdriver
 import time
 import json
 
-category = 'craft'
+category = 'technology'
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
@@ -21,6 +21,7 @@ for i in range(0, numberPages):
     articleList = driver.find_element_by_css_selector('.explore-covers-list.clearfix').find_elements_by_xpath('.//li')
     for article in articleList:
         aux = {}
+        element = article.find_element_by_css_selector('.title')
         aux['url'] = element.find_element_by_xpath('.//a').get_attribute('href')
         final.append(aux)
     print(str(i)+'.-'+str(i*59))
