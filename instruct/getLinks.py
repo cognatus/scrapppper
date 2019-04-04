@@ -2,7 +2,7 @@ from selenium import webdriver
 import time
 import json
 
-category = 'technology'
+category = 'workshop'
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
