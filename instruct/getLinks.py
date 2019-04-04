@@ -6,7 +6,9 @@ category = 'outside'
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
-driver = webdriver.Chrome(executable_path = './chromedriver_linux64/chromedriver',chrome_options=options)
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
+driver = webdriver.Chrome(executable_path = '../chromedriver_linux64/chromedriver',chrome_options=options)
 driver.get('https://www.instructables.com/'+category+'/')
 
 pagination = driver.find_element_by_css_selector('.pull-right.pagination')
