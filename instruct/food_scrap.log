@@ -53,16 +53,51 @@ no info headers
 no info headers
 26.-https://www.instructables.com/id/No-Bake-Birthday-Cake/
 no info headers
-Traceback (most recent call last):
-  File "gettodo.py", line 22, in <module>
-    driver.get(data[p]['url'])
-  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webdriver.py", line 333, in get
-    self.execute(Command.GET, {'url': url})
-  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
-    self.error_handler.check_response(response)
-  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
-    raise exception_class(message, screen, stacktrace)
-selenium.common.exceptions.TimeoutException: Message: timeout
-  (Session info: headless chrome=73.0.3683.86)
-  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Linux 4.15.0-46-generic x86_64)
-
+27.-https://www.instructables.com/id/Individual-Beef-Wellington-Pies/
+no info headers
+28.-https://www.instructables.com/id/Sneeuwster-and-Advocaat-a-Dutch-Treat-for-Easter/
+no info headers
+29.-https://www.instructables.com/id/How-to-Make-Brown-Sugar-Apple-Pie/
+no info headers
+30.-https://www.instructables.com/id/Easy-Red-Velvet-Cake/
+no info headers
+31.-https://www.instructables.com/id/Muffin-Tin-Popovers/
+no info headers
+32.-https://www.instructables.com/id/Pi-Day-Pie-Recipes/
+33.-https://www.instructables.com/id/Lemon-Ricotta-Pie/
+no info headers
+34.-https://www.instructables.com/id/English-Breakfast-in-a-Pie/
+no info headers
+35.-https://www.instructables.com/id/Coconut-Chutney-Recipe-South-Indian-Coconut-Chutne/
+no info headers
+36.-https://www.instructables.com/id/Chocolate-Crepes-Recipe/
+no info headers
+37.-https://www.instructables.com/id/Classic-Strawberry-Rhubarb-Pie/
+no info headers
+38.-https://www.instructables.com/id/Chicken-Pot-Pie-314-Ways/
+no info headers
+39.-https://www.instructables.com/id/Chicken-Pesto-Pie/
+no info headers
+40.-https://www.instructables.com/id/Raspberry-Pi-Pie/
+no info headers
+41.-https://www.instructables.com/id/Easy-Apple-and-Blackberry-Pie/
+no info headers
+42.-https://www.instructables.com/id/Lattice-Crust-Apple-Pie/
+no info headers
+43.-https://www.instructables.com/id/Creamy-Mac-N-Cheese/
+no info headers
+44.-https://www.instructables.com/id/Strawberry-Sauce-Compote/
+no info headers
+45.-https://www.instructables.com/id/BASBOUSA-Baked-Semolina-Cake-in-Sugar-Syrup/
+no info headers
+46.-https://www.instructables.com/id/Healthy-Recipes-Sprouts-Chilla-Sprouts-Moong-Cheel/
+no info headers
+47.-https://www.instructables.com/id/Moong-Dal-Cheela-How-to-Make-Moong-Dal-Cheela-Reci/
+no info headers
+48.-https://www.instructables.com/id/Chikki-Aka-PEANUT-JAGGERY-BAR/
+no info headers
+49.-https://www.instructables.com/id/Peanut-Butter-Filled-Chocolate-Cupcakes-1/
+no info headers
+50.-https://www.instructables.com/id/How-to-Make-Aloo-Paratha/
+no info headers
+51.-https://www
