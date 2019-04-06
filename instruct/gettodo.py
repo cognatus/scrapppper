@@ -16,7 +16,7 @@ wait = WebDriverWait(driver, 5)
 
 final = []
 errors = []
-file_name = 'play'
+file_name = 'workshop'
 
 with open('all_'+file_name+'_links.json') as json_file:  
     data = json.load(json_file)
