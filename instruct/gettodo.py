@@ -2,17 +2,21 @@ from selenium import webdriver
 import time 
 import json
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
 driver = webdriver.Chrome(executable_path = '../chromedriver_linux64/chromedriver',chrome_options=options)
-driver.get('https://www.instructables.com/')
+driver.implicitly_wait(5)
+wait = WebDriverWait(driver, 5)
 
 final = []
 errors = []
-file_name = 'home'
+file_name = 'technology'
 
 with open('all_'+file_name+'_links.json') as json_file:  
     data = json.load(json_file)
@@ -20,8 +24,8 @@ with open('all_'+file_name+'_links.json') as json_file:
     for p in range(0, len(data)):
         try:
             driver.get(data[p]['url'])
+            wait.until(EC.visibility_of_element_located((By.ID, "instructables-logo")))
             print(str(p) + '.-' + data[p]['url'])
-            time.sleep(5)
             url = data[p]['url']
             title = ''   
             category = ''
@@ -38,18 +42,14 @@ with open('all_'+file_name+'_links.json') as json_file:
                     channel = driver.find_element_by_css_selector('.channel').text
                 except NoSuchElementException as Exception:  
                     print('no info headers')
-                
-                #intro = driver.find_element_by_id('intro')
                 description = ''
                 try:
                     description = driver.execute_script("var intro = document.getElementById('intro'); return intro ? intro.getElementsByClassName('step-body')[0] : (document.getElementsByClassName('collection-intro').length > 0 ? document.getElementsByClassName('collection-intro')[0] : document.getElementsByClassName('header-title')[0])").text
                 except Exception as e:
                     description = 'No description available'
-                #description = intro.find_element_by_css_selector('.step-body').text
                 esta =True
                 i = 1
                 step_all = []
-                
                 try:
                     while(esta):
                         step = driver.find_element_by_id('step'+str(i))
@@ -68,7 +68,7 @@ with open('all_'+file_name+'_links.json') as json_file:
                             'step_imgs': imgs
                         })
                         i = i +1
-                except NoSuchElementException as Exception:
+                except:
                     i = 1
                     esta = False
 
@@ -84,7 +84,9 @@ with open('all_'+file_name+'_links.json') as json_file:
                 if len(final) % 10 == 0:
                     with open(file_name+'_scrap.json', 'w') as f:  # writing JSON object
                         json.dump(final, f)
-        except Exception as e:
+        except:
             errors.append(data[p]['url'])
             with open(file_name+'_error.json', 'w') as f:  # writing JSON object
                 json.dump(errors, f)
+
+driver.close()
