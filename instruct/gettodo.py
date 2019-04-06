@@ -12,7 +12,7 @@ driver.get('https://www.instructables.com/')
 
 final = []
 errors = []
-file_name = 'outside'
+file_name = 'technology'
 
 with open('all_'+file_name+'_links.json') as json_file:  
     data = json.load(json_file)
@@ -78,9 +78,10 @@ with open('all_'+file_name+'_links.json') as json_file:
                     'url': url,
                     'description': description,
                     'channel': channel,
-                    'steps': step_all
+                    'steps': step_all,
+                    'section': file_name
                 })
-                if len(final) % 20 == 0:
+                if len(final) % 10 == 0:
                     with open(file_name+'_scrap.json', 'w') as f:  # writing JSON object
                         json.dump(final, f)
         except Exception as e:
