@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 final = []
 errors = []
-file_name = 'outside'
+file_name = 'play'
 
 with open('all_'+file_name+'_links.json') as json_file:  
     data = json.load(json_file)
