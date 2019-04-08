@@ -70,7 +70,7 @@ with open('all_'+file_name+'_links.json') as json_file:
                 })
 
                 if len(final) % 10 == 0:
-                    with open(file_name+'2_scrap.json', 'w') as f:  # writing JSON object
+                    with open(file_name+'3_scrap.json', 'w') as f:  # writing JSON object
                         json.dump(final, f)
             else:
                 print('nel')
@@ -78,5 +78,5 @@ with open('all_'+file_name+'_links.json') as json_file:
             print(str(p) + '.-' + data[p]['url'])
             print(e)
             errors.append(data[p]['url'])
-            with open(file_name+'2_error.json', 'w') as f:  # writing JSON object
+            with open(file_name+'3_error.json', 'w') as f:  # writing JSON object
                 json.dump(errors, f)
