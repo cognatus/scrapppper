@@ -6,7 +6,7 @@ final = []
 errors = []
 file_name = 'technology'
 
-with open(file_name+'4_scrap.json') as json_file:  
+with open(file_name+'3_scrap.json') as json_file:  
     data = json.load(json_file)
     for p in range(0, len(data)):
         try:
@@ -28,7 +28,7 @@ with open(file_name+'4_scrap.json') as json_file:
             final.append(article)
 
             if len(final) % 10 == 0:
-                with open(file_name+'4_scrap2.json', 'w') as f:  # writing JSON object
+                with open(file_name+'3_scrap2.json', 'w') as f:  # writing JSON object
                     json.dump(final, f)
         except Exception as e:
             print(str(p) + '.-' + data[p]['url'])
