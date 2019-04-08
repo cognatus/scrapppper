@@ -4,11 +4,11 @@ from bs4 import BeautifulSoup
 
 final = []
 errors = []
-file_name = 'home'
+file_name = 'technology'
 
 with open('all_'+file_name+'_links.json') as json_file:  
     data = json.load(json_file)
-    for p in range(0, len(data)):
+    for p in range(37237, 46546):
         try:
             url = data[p]['url']
             response = get(url)
@@ -70,7 +70,7 @@ with open('all_'+file_name+'_links.json') as json_file:
                 })
 
                 if len(final) % 10 == 0:
-                    with open(file_name+'_scrap.json', 'w') as f:  # writing JSON object
+                    with open(file_name+'6_scrap.json', 'w') as f:  # writing JSON object
                         json.dump(final, f)
             else:
                 print('nel')
@@ -78,5 +78,5 @@ with open('all_'+file_name+'_links.json') as json_file:
             print(str(p) + '.-' + data[p]['url'])
             print(e)
             errors.append(data[p]['url'])
-            with open(file_name+'_error.json', 'w') as f:  # writing JSON object
+            with open(file_name+'6_error.json', 'w') as f:  # writing JSON object
                 json.dump(errors, f)
