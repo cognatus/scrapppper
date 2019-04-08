@@ -4,9 +4,9 @@ from bs4 import BeautifulSoup
 
 final = []
 errors = []
-file_name = 'home'
+file_name = 'technology'
 
-with open(file_name+'_scrap.json') as json_file:  
+with open(file_name+'7_scrap.json') as json_file:  
     data = json.load(json_file)
     for p in range(0, len(data)):
         try:
@@ -28,7 +28,7 @@ with open(file_name+'_scrap.json') as json_file:
             final.append(article)
 
             if len(final) % 10 == 0:
-                with open(file_name+'_scrap2.json', 'w') as f:  # writing JSON object
+                with open(file_name+'7_scrap2.json', 'w') as f:  # writing JSON object
                     json.dump(final, f)
         except Exception as e:
             print(str(p) + '.-' + data[p]['url'])
