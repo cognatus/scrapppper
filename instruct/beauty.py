@@ -8,7 +8,7 @@ file_name = 'technology'
 
 with open('all_'+file_name+'_links.json') as json_file:  
     data = json.load(json_file)
-    for p in range(24957, 37236):
+    for p in range(24950, 37236):
         try:
             url = data[p]['url']
             response = get(url)
