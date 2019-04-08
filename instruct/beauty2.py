@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 final = []
 errors = []
-file_name = 'craft'
+file_name = 'food'
 
 with open(file_name+'_scrap.json') as json_file:  
     data = json.load(json_file)
